@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{174d1177-20ce-4e98-aed7-520918166bbf}</ProjectGuid>
-    <RootNamespace>Tutorial18022021</RootNamespace>
+    <ProjectGuid>{5f7d703f-424a-44b9-9c3b-5b2f941e166b}</ProjectGuid>
+    <RootNamespace>Tutorial408032021</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Tutorial 1 - 18.02.2021</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Tutorial 18.02.2021.cpp" />
+    <ClCompile Include="Tutorial 4 - 08.03.2021.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
