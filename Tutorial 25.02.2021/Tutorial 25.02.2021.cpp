@@ -5,6 +5,40 @@ using namespace std;
 
 #include <iostream>
 
+
+/*
+* Program output:
+* 
+* Enter the width and length of the first rectangle:
+  Width: 2
+  Length: 2
+  Enter the width and length of the second rectangle:
+  Width: 4
+  Length: 5
+  Rectangle 2 is bigger
+  Enter a number between one and ten: -1
+  You did not enter a valid number.
+
+  Enter a number between one and ten: 11
+  You did not enter a valid number.
+
+ Enter a number between one and ten: 6
+ The roman number is VI
+ You have worked out for 5 minutes. You have burned 3.9 calories.
+ You have worked out for 10 minutes. You have burned 7.8 calories.
+ You have worked out for 15 minutes. You have burned 11.7 calories.
+ You have worked out for 20 minutes. You have burned 15.6 calories.
+ You have worked out for 25 minutes. You have burned 19.5 calories.
+ You have worked out for 30 minutes. You have burned 23.4 calories.
+ You have worked out for 35 minutes. You have burned 27.3 calories.
+
+ Enter a positive number: -1
+
+ Enter a positive number: 6
+ The sum from 1 to 6 is: 21
+
+*/
+
 int main()
 {
     /*
