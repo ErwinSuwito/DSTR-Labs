@@ -7,10 +7,11 @@ using namespace std;
 void q1();
 void q2();
 void q3();
+double getAverage(int* arr, int size);
 
 int main()
 {
-    q2();
+    q3();
 }
 
 void q1()
@@ -83,10 +84,27 @@ void q2()
     {
         cout << array[i] << endl;
     }
-
 }
 
 void q3()
 {
+    /*Exercise 3
+    *Given an array of 5 values, create a function double getAverage(int *arr, int size);
+    *to calculate the average of the array.
+    *The function must have the arguments and with a return value.
+    */
+    int balance[5] = { 100, 2568, 328, 7, 5140 };
+    cout << "Average is: " << getAverage(balance, 5);
+}
 
+double getAverage(int* arr, int size)
+{
+    double total = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        total += arr[i];
+    }
+
+    return total / size;
 }
