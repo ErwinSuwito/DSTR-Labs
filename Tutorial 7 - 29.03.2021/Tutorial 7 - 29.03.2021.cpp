@@ -19,8 +19,12 @@ void showSelection()
     cout << "1 for Add New Student" << endl;
     cout << "2 for Display Student Marks" << endl;
     cout << "3 for Display Best Student" << endl;
+    cout << "4 for search records" << endl;
+    cout << "5 for update record" << endl;
+    cout << "6 for delete record" << endl;
+    cout << "7 for reset (deletes all records)" << endl;
 
-    cout << "4 to exit" << endl;
+    cout << "0 to exit" << endl;
 }
 
 bool findId(int id)
@@ -132,13 +136,128 @@ void bestStudent()
     }
 }
 
+// Tutorial 8 12.04.2021 codes starts here
+void searchRecord()
+{
+    classInfo* ptr = head;
+    int searchString;
+    cout << "Enter the student ID to search: ";
+    cin >> searchString;
+
+    cout << "Searching for " << searchString << "...";
+    cout << endl << "Student ID, Midterm test, Assignment, Quiz, Final Exam";
+
+    while (ptr != NULL)
+    {
+        
+        if (ptr->stud_id == searchString)
+        {   
+            cout << endl << ptr->stud_id << ", " << ptr->test << ", " << ptr->assignment << ", " << ptr->quiz << ", " << ptr->final;
+        }
+
+        ptr = ptr->next;
+    }
+
+    cout << endl << "End of search";
+}
+
+void updateRecord()
+{
+    classInfo* ptr = head;
+    int searchString;
+    cout << endl << "Enter a student id to edit: ";
+    cin >> searchString;
+
+    while (ptr != NULL)
+    {
+        if (ptr->stud_id == searchString)
+        {
+            float test, assignment, quiz, final;
+            cout << endl << "Editing student id: " << ptr->stud_id << endl;
+
+            cout << "What is the midterm test mark of student [0-20]: ";
+            cin >> test;
+
+            cout << "What is quiz mark of student [0-10]: ";
+            cin >> quiz;
+
+            cout << "What is the assignment mark of student [0-20]: ";
+            cin >> assignment;
+
+            cout << "What is final exam mark of student [0-50]: ";
+            cin >> final;
+
+            ptr->test = test;
+            ptr->assignment = assignment;
+            ptr->quiz = quiz;
+            ptr->final = final;
+
+            cout << "New student data saved successfully.";
+        }
+
+        ptr = ptr->next;
+    }
+}
+
+void deleteRecord()
+{
+    classInfo* ptr = head;
+    int searchString;
+    cout << endl << "Enter a student id to delete: ";
+    cin >> searchString;
+
+    while (ptr != NULL)
+    {
+        if (ptr->stud_id == searchString)
+        {
+            classInfo* before = head;
+            if (before->next != NULL)
+            {
+                while (before != NULL)
+                {
+                    if (before->next == ptr)
+                    {
+                        before->next = ptr->next;
+                    }
+                    before = before->next;
+                }
+            }
+            else
+            {
+                head = NULL;
+            }
+            
+            delete(ptr);
+            return;
+        }
+        ptr = ptr->next;
+    }
+
+}
+
+void reset()
+{
+    classInfo* ptr = head;
+
+    while (ptr != NULL)
+    {
+        classInfo* newPtr = ptr->next;
+        delete(ptr);
+        ptr = newPtr;
+    }
+
+    head = NULL;
+
+    cout << "Deleted all records";
+}
+
 int main()
 {
     int choice;
     showSelection();
     cin >> choice;
 
-    while (choice != 5)
+    while (choice != 0)
     {
         switch (choice)
         {
@@ -152,10 +271,23 @@ int main()
             bestStudent();
             break;
         case 4:
+            searchRecord();
+            break;
+        case 5:
+            updateRecord();
+            break;
+        case 6:
+            deleteRecord();
+            break;
+        case 7:
+            reset();
+            break;
+        case 0:
             return 1;
         default:
             cout << "Invalid selection." << endl;
         }
+
         showSelection();
         cin >> choice;
     }
